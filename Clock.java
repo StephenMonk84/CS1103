@@ -55,7 +55,10 @@ class TimeUpdate implements Runnable{
     //This is run method to update the time of the object
     public void run(){
         while(true){
-            timer = LocalDateTime.now();
+            synchronized(timer){
+                timer = LocalDateTime.now();
+            }
+            
         }
     }
     //This is the method to access the timer LocalDateTime attribute
