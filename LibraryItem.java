@@ -23,15 +23,15 @@ public class LibraryItem <T, V>{
         this.author = author;
     }
 
-    public <T>T getItemID(){
-        return itemID;
+    public T getItemID(){
+        return this.itemID;
     }
 
-    public <V>V getTitle(){
+    public V getTitle(){
         return title;
     }
 
-    public <V>V getAuthor(){
+    public V getAuthor(){
         return author;
     }
 
