@@ -1,10 +1,12 @@
 public class LibraryItem <T, V>{
+    /*This generic class stores all the basic information about a library item, it also provides all the getter and setter methods as well as constructor. */
+    
     private T itemID;
     private V title;
     private V author;
 
     
-        
+    //Constructor to set values based on input    
     public LibraryItem(T itemID, V title, V author){
         this.itemID = itemID;
         this.title = title;
