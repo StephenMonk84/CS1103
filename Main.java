@@ -8,5 +8,7 @@ public class Main {
         Catalog catItem01 = new Catalog<>(libItem);
         catItem01.consoleOutput();
     }
+    //Add menu method this needs to check for the correct data type
+    //Fully Implement Catalog class make sure add, delete, and display all the items on screen
     
 }
