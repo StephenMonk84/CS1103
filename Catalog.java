@@ -2,34 +2,49 @@ import java.util.ArrayList;
 
 public class Catalog <T extends LibraryItem>{
 
-    //Need to bind generic to ensure generics can be used instead of explicit arraylist
-    T catalogItem;
-    ArrayList<LibraryItem> libItem = new ArrayList<>();
-    //ArrayList<T> libItem01 = new ArrayList<>();
+    /*This Generic class contains an arraylist of the library items as well as methods to access and remove items */
+    private ArrayList<LibraryItem> libItem = new ArrayList<>();
     
     public Catalog(T catalogItem){
+        /*Constructor that takes generic objects of LibraryItem type to add to ArrayList */
         libItem.add(catalogItem);
     }
     public Catalog(){
+        /**Default Constructor in case no values are given */
         libItem.add(new LibraryItem<>(0, "The Lord of the Rings", "JRR Tolkein"));
-        //libItem01.add(new LibraryItem<Integer, String>(0, "The Lord of the Rings", "JRR Tolkein"));
     }
-    
-    public void consoleOutput(){
-        System.out.println("The item id is "+libItem.get(0).getItemID() + " the book title is " + libItem.get(0).getTitle() + " the author is " + libItem.get(0).getAuthor());
-    }
-    /* 
-     *  public void addItem(LibraryItem lib){
-        libItem.add(lib);
-    }
-     * 
-     * //Need to add itemID to remove
-    public void removeItem(){
-        libItem.remove();
-    }
-
-    */
    
     
+    public void collectionOutput(){
+        /*This method outputs the entire collection */
+        for(int i=0; i < libItem.size(); i++){
+            System.out.println("The item id is "+libItem.get(i).getItemID() + " the book title is " + libItem.get(i).getTitle() + " and the author is " + libItem.get(i).getAuthor());
+        }
+    }
+     
+     //Need to add itemID to remove
+    public void removeItem(int index){
+        for(int i =0;i < libItem.size();i++){
+            if(libItem.get(i).getItemID() == index){
+                libItem.remove(libItem.get(i));
+            }
+        }
+    }
+
+    public LibraryItem findItem(int index){
+        for(int i =0;i < libItem.size();i++){
+            if(libItem.get(i).getItemID() == index){
+                return libItem.get(i);
+            }
+        }
+        System.out.println("There is no item with that item id");
+        //This returns the first value if there is no value
+        return libItem.get(0);
+    }
+   
+    public void addItem(T catalogItem){
+        /*Method for adding items to the catalog */
+        libItem.add(catalogItem);
+    }
 
 }
