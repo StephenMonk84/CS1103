@@ -22,23 +22,31 @@ public class Catalog <T extends LibraryItem>{
         }
     }
      
-     //Need to add itemID to remove
     public void removeItem(int index){
-        for(int i =0;i < libItem.size();i++){
-            if(libItem.get(i).getItemID() == index){
-                libItem.remove(libItem.get(i));
+        /*This first checks if the arraylist is empty, if it is empty is leaves the method, otherwise removes the
+         * selected based on the itemID
+         */
+        if(!libItem.isEmpty()){
+            for(int i =0;i < libItem.size();i++){
+                if(libItem.get(i).getItemID() == index){
+                    libItem.remove(libItem.get(i));
+                }
             }
         }
+        else{
+            System.out.println("The arraylist is empty");
+        }
+        
     }
 
     public LibraryItem findItem(int index){
+        /*This method looks for the selected item based on the itemID, if it can't find the item it returns the first value in the arraylist */
         for(int i =0;i < libItem.size();i++){
             if(libItem.get(i).getItemID() == index){
                 return libItem.get(i);
             }
         }
         System.out.println("There is no item with that item id");
-        //This returns the first value if there is no value
         return libItem.get(0);
     }
    
