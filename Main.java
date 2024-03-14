@@ -82,10 +82,5 @@ public class Main {
         Scanner menuInp = new Scanner(System.in);
         return menuInp.nextLine();
     }
-
-  
-
-    //Add menu method this needs to check for the correct data type
-    //Fully Implement Catalog class make sure delete, and display all the items on screen
     
 }
